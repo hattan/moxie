@@ -14,7 +14,6 @@
 src
 pkg
 
-main.go
 bin
 **/*.exercism
 github.com
