@@ -1,7 +1,7 @@
 package main
 
 import (
-	"temp/log"
+	"logger-example/log"
 	"fmt"
 	"os"
 )
