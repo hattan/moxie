@@ -6,6 +6,7 @@ import "fmt"
 var greetings = map[string]string {
 	"English" : "Hello, ",
 	"Spanish" : "Hola, ",
+	"French"	: "Bonjour, ",
 }
 
 func Hello(name string, language string) string {
