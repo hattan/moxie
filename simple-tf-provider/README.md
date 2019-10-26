@@ -11,7 +11,7 @@ resource "todo_list" "project_one" {
    category = "Home"
 }
 
-resource "todo_list_item" "project_one" {
+resource "todo_list_item" "walk_todo" {
    description = "Go for a walk"
    list_name = todo_list.name
 }
