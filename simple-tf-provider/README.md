@@ -1,6 +1,6 @@
 # Terraform ToDoList Provider
 
-## This is not a real project, but an exercise to learn how to build [Terraform Providers](https://www.terraform.io/docs/extend/writing-custom-providers.html)
+## This is not a real project, but an exercise in order to learn how to build [Terraform Providers](https://www.terraform.io/docs/extend/writing-custom-providers.html)
 
 The goal is to create a ToDo list that is stored on disk using files and folders.
 
