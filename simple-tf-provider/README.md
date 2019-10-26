@@ -1,4 +1,4 @@
-#Simple Terraform Provider
+# Terraform ToDoList Provider
 
 ## This is not a real project, but an excersize to learn how to build [Terraform Providers](https://www.terraform.io/docs/extend/writing-custom-providers.html)
 
