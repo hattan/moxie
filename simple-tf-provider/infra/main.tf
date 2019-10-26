@@ -1,5 +1,9 @@
+resource "todo_storage" "local" {
+   path= var.base_path
+}
+
 resource "todo_list" "project_one" {
    name = var.project_name
-   base_path= var.base_path
+   path= todo_storage.local.path
    category = "Home"
 }

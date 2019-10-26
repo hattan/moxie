@@ -5,9 +5,13 @@
 The goal is to create a ToDo list that is stored on disk using files and folders.
 
 ```ruby 
+resource "todo_storage" "todos_storage" {
+   path= "~/todos-store"
+}
+
 resource "todo_list" "project_one" {
    name = "TestProject"
-   base_path= "~/todos"
+   path= todo_storage.local.path
    category = "Home"
 }
 

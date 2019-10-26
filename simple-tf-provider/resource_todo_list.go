@@ -26,7 +26,7 @@ func resourceTodoList() *schema.Resource {
         Type:     schema.TypeString,
         Required: true,
       },
-      "base_path": &schema.Schema{
+      "path": &schema.Schema{
         Type:     schema.TypeString,
         Required: true,
       },
@@ -44,7 +44,7 @@ func resourceTodoList() *schema.Resource {
 }
 
 func resourceTodoListCreate(d *schema.ResourceData, m interface{}) error {
-  base_path := d.Get("base_path").(string)
+  base_path := d.Get("path").(string)
   name := d.Get("name").(string)
   category := d.Get("category").(string)
   category_path := base_path + "/" + category

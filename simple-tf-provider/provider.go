@@ -8,6 +8,7 @@ func Provider() *schema.Provider {
   return &schema.Provider{
     ResourcesMap: map[string]*schema.Resource{
       "todo_list": resourceTodoList(),
+      "todo_storage" : resourceTodoStorage(),
     },
   }
 }
