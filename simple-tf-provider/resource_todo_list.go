@@ -6,13 +6,9 @@ import (
   "simple-tf-provider/client"
 )
 
-type CategoryName string
 
-const (
-  ShoppingList CategoryName = "ShoppingList"
-  Home         CategoryName = "Home"
-  Office       CategoryName = "Office"
-)
+
+
 
 func resourceTodoList() *schema.Resource {
   return &schema.Resource{
@@ -34,9 +30,9 @@ func resourceTodoList() *schema.Resource {
         Type:     schema.TypeString,
         Required: true,
         ValidateFunc: validation.StringInSlice([]string{
-          string(ShoppingList),
-          string(Home),
-          string(Office),
+          string(todo_client.ShoppingList),
+          string(todo_client.Home),
+          string(todo_client.Office),
         }, false),
       },
     },

@@ -7,6 +7,13 @@ import (
   "path/filepath"
 )
 
+type CategoryName string
+const (
+  ShoppingList CategoryName = "ShoppingList"
+  Home         CategoryName = "Home"
+  Office       CategoryName = "Office"
+)
+
 func RemoveContents(dir string) error {
   d, err := os.Open(dir)
   if err != nil {
