@@ -43,6 +43,7 @@ resource "todo_list_item" "walk_todo" {
 Resources:
 * [Terraform.io](https://www.terraform.io)
 * [Writing Custom Terraform Providers](https://www.terraform.io/docs/extend/writing-custom-providers.html)
+* [Creating a Terraform Provider for Just About Anything (YouTube video)](https://www.youtube.com/watch?v=noxwUVet5RE&t=1506s)
 * [Terraform Schema Types](https://www.terraform.io/docs/extend/schemas/schema-types.html)
 * [ARM Bot Web App Resource](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/azurerm/resource_arm_bot_web_app.go)
 * [Debugging Terraform](https://www.terraform.io/docs/internals/debugging.html)
