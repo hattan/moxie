@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 terraform_dir="infra"
 
 go build -o $terraform_dir/terraform-provider-todo
