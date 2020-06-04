@@ -1,14 +1,15 @@
 package calc
 
 import (
+	"errors"
 	"fmt"
 	"strconv"
 	"strings"
 )
 
-func Add(numbers string) int {
+func Add(numbers string) (int, error) {
 	if numbers == "" {
-		return 0
+		return 0, nil
 	}
 
 	delimeters := ","
@@ -25,10 +26,17 @@ func Add(numbers string) int {
 	data := splitAny(numbers, delimeters)
 	fmt.Println(data)
 	for _, number := range data {
-		num, _ := strconv.Atoi(number)
+		num, err := strconv.Atoi(number)
+		if err != nil {
+			return 0, err
+		}
+
+		if num < 0 {
+			return 0, errors.New("negative numbers not allowed")
+		}
 		sum = sum + num
 	}
-	return sum
+	return sum, nil
 }
 
 func splitAny(s string, seps string) []string {
