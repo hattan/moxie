@@ -36,9 +36,11 @@ func Add(numbers string) (int, error) {
 
 		sum = sum + num
 	}
+
 	if negatives != "" {
 		return 0, fmt.Errorf("negative numbers not allowed found:(%s)", negatives)
 	}
+
 	return sum, nil
 }
 
