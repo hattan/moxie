@@ -38,11 +38,23 @@ var testCases = []struct {
 		input:    "1,5,10",
 		expected: 16,
 	},
+	{
+		message:  "Supports newline as a delimeter",
+		testId:   "5",
+		input:    "1\n2,3",
+		expected: 6,
+	},
+	{
+		message:  "Support different delimiters",
+		testId:   "6",
+		input:    "//;\n1;2",
+		expected: 3,
+	},
 }
 
 var Info = log.New(os.Stdout, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile)
 
-func TestEmptyStringReturnsZero(t *testing.T) {
+func TestAdd(t *testing.T) {
 
 	for _, test := range testCases {
 		t.Run(test.testId, func(t *testing.T) {
