@@ -1,7 +1,6 @@
 package calc
 
 import (
-	"errors"
 	"fmt"
 	"strconv"
 	"strings"
@@ -24,7 +23,7 @@ func Add(numbers string) (int, error) {
 
 	sum := 0
 	data := splitAny(numbers, delimeters)
-	fmt.Println(data)
+	negatives := ""
 	for _, number := range data {
 		num, err := strconv.Atoi(number)
 		if err != nil {
@@ -32,9 +31,13 @@ func Add(numbers string) (int, error) {
 		}
 
 		if num < 0 {
-			return 0, errors.New("negative numbers not allowed")
+			negatives = includeDisplayComma(negatives) + number
 		}
+
 		sum = sum + num
+	}
+	if negatives != "" {
+		return 0, fmt.Errorf("negative numbers not allowed found:(%s)", negatives)
 	}
 	return sum, nil
 }
@@ -44,4 +47,11 @@ func splitAny(s string, seps string) []string {
 		return strings.ContainsRune(seps, r)
 	}
 	return strings.FieldsFunc(s, splitter)
+}
+
+func includeDisplayComma(input string) string {
+	if input != "" {
+		input = input + ","
+	}
+	return input
 }

@@ -59,11 +59,18 @@ var testCases = []struct {
 		expectedError: nil,
 	},
 	{
-		message:       "Negative Numbers thows exception",
+		message:       "Negative Numbers returns error",
 		testId:        "7",
 		input:         "-1,5",
 		expected:      3,
-		expectedError: errors.New("negative numbers not allowed"),
+		expectedError: errors.New("negative numbers not allowed found:(-1)"),
+	},
+	{
+		message:       "Multiple Negative Numbers appear in error",
+		testId:        "7",
+		input:         "-1,5,-20,-2,4",
+		expected:      3,
+		expectedError: errors.New("negative numbers not allowed found:(-1,-20,-2)"),
 	},
 }
 
