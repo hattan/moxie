@@ -1,0 +1,14 @@
+package main
+
+import (
+	"fmt"
+	"regexp"
+)
+
+func main() {
+	input := "//[***][111]\n1***2***3"
+	fmt.Println("hello world")
+	re := regexp.MustCompile("\\[(.*?)\\]")
+	match := re.FindStringSubmatch(input)
+	fmt.Printf("match=%s\n", match)
+}

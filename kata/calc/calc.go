@@ -2,6 +2,8 @@ package calc
 
 import (
 	"errors"
+	"fmt"
+	"regexp"
 	"strconv"
 	"strings"
 )
@@ -26,6 +28,11 @@ func Sum(input string) (int, error) {
 
 	if strings.HasPrefix(input, "//") {
 		tokens = strings.Split(input[4:], input[2:3])
+	} else if strings.HasPrefix(input, "//[") {
+		re := regexp.MustCompile("\\[(.*?)\\]")
+		match := re.FindStringSubmatch(input)
+		fmt.Printf("input=%s match=%s\n\n", input, match)
+		tokens = strings.Split(input[4:], match[1])
 	} else {
 		tokens = strings.FieldsFunc(input, Split)
 	}

@@ -21,6 +21,7 @@ var tables = []struct {
 	{"-1,2", 0, "Negative Numbers throws Exception", "negatives not allowed -1"},
 	{"-1,-2,-5", 0, "Multiple negative numbers show all", "negatives not allowed -1,-2,-5"},
 	{"1001,10,2", 12, "Numbers bigger than 1000 should be ignored", ""},
+	{"//[***]\n1***2***3", 6, "Delimiters can be of any length", ""},
 }
 
 func TestSum(t *testing.T) {
