@@ -24,6 +24,7 @@ func Add(numbers string) (int, error) {
 	sum := 0
 	data := splitAny(numbers, delimeters)
 	negatives := ""
+
 	for _, number := range data {
 		num, err := strconv.Atoi(number)
 		if err != nil {
