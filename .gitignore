@@ -12,12 +12,10 @@
 *.out
 
 src
-pkg
 
 refactored_basic_api/main
 refactored_basic_api/**/cover.html
 refactored_basic_api/**/cover.out
-
 bin
 **/*.exercism
 
