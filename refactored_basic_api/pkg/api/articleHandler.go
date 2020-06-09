@@ -3,6 +3,7 @@ package api
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 
@@ -10,12 +11,14 @@ import (
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
 	d "github.com/hattan/moxie/pkg/api/data"
+	m "github.com/hattan/moxie/pkg/api/models"
 )
 
 type ArticleHandler interface {
 	homePage(w http.ResponseWriter, r *http.Request)
 	returnAllArticles(w http.ResponseWriter, r *http.Request)
 	returnSingleArticle(w http.ResponseWriter, r *http.Request)
+	createArticle(w http.ResponseWriter, r *http.Request)
 }
 
 type ArticleService struct {
@@ -39,6 +42,15 @@ func (service ArticleService) homePage(w http.ResponseWriter, r *http.Request) {
 func (service ArticleService) returnAllArticles(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Endpoint Hit: returnAllArticles")
 	json.NewEncoder(w).Encode(service.repository.ReturnAllArticles())
+}
+
+func (service ArticleService) createArticle(w http.ResponseWriter, r *http.Request) {
+	reqBody, _ := ioutil.ReadAll(r.Body)
+	var article m.Article
+	article.Id = uuid.New()
+	json.Unmarshal(reqBody, &article)
+	service.repository.AddArticle(article)
+	w.WriteHeader(201)
 }
 
 func (service ArticleService) returnSingleArticle(w http.ResponseWriter, r *http.Request) {

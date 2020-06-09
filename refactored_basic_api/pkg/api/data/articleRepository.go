@@ -8,4 +8,5 @@ import (
 type ArticleRepository interface {
 	ReturnAllArticles() m.Articles
 	ReturnSingleArticle(id uuid.UUID) *m.Article
+	AddArticle(article m.Article)
 }

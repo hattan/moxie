@@ -54,6 +54,10 @@ func (repository *FakeArticleRepository) ReturnAllArticles() m.Articles {
 	return repository.articles
 }
 
+func (repository *FakeArticleRepository) AddArticle(article m.Article) {
+	repository.articles = append(repository.articles, article)
+}
+
 func (repository *FakeArticleRepository) ReturnSingleArticle(id uuid.UUID) *m.Article {
 	for _, article := range repository.articles {
 		if article.Id == id {

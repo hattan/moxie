@@ -3,28 +3,6 @@ package api
 /*
 var Articles []m.Article
 
-func returnAllArticles(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Endpoint Hit: returnAllArticles")
-	json.NewEncoder(w).Encode(Articles)
-}
-
-func returnSingleArticle(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Endpoint Hit: returnSingleArticle")
-	vars := mux.Vars(r)
-	key, err := uuid.Parse(vars["id"])
-	if err != nil {
-		log.Printf("Invalid key format, %s", vars["id"])
-		w.WriteHeader(500)
-		fmt.Fprintf(w, "Invalid key format %s", vars["id"])
-		return
-	}
-
-	for _, article := range Articles {
-		if article.Id == key {
-			json.NewEncoder(w).Encode(article)
-		}
-	}
-}
 
 func createNewArticle(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Endpoint Hit: createNewArticle")

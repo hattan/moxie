@@ -47,6 +47,17 @@ var apiTests = []APITestCase{
 		URL:    "/article/" + uuid.New().String(),
 		Status: 404,
 	},
+	{
+		Tag:    "t6 - Create Article",
+		Method: "POST",
+		URL:    "/article",
+		Status: 201,
+		Body: `{
+			"title":"New!",
+			"desc":"Fake Article",
+			"content":"foo"
+		}`,
+	},
 }
 
 func TestRouter(t *testing.T) {
@@ -54,7 +65,7 @@ func TestRouter(t *testing.T) {
 	router := NewRouter()
 
 	for _, test := range apiTests {
-		res := testAPI(router, test.Method, test.URL, test.Tag)
+		res := testAPI(router, test.Method, test.URL, test.Body)
 		assert.Equal(t, test.Status, res.Code, test.Tag)
 		if test.ExpectedResponse != "" {
 			assert.Equal(t, test.ExpectedResponse, res.Body.String(), test.Tag)

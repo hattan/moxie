@@ -28,6 +28,12 @@ func (router *ApiRouter) getRoutes() m.Routes {
 			router.articleHandler.returnAllArticles,
 		},
 		m.Route{
+			"Create Article",
+			"POST",
+			"/article",
+			router.articleHandler.createArticle,
+		},
+		m.Route{
 			"Get Article By Id",
 			"GET",
 			"/article/{id}",
@@ -35,6 +41,7 @@ func (router *ApiRouter) getRoutes() m.Routes {
 		},
 	}
 }
+
 func NewRouter() *ApiRouter {
 	var articleHandler ArticleHandler
 	container.Make(&articleHandler)
